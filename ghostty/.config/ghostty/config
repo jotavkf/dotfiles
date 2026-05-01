@@ -1,0 +1,14 @@
+theme = Horizon
+font-family = JetBrains Mono
+macos-option-as-alt = true
+background-opacity = 0.95
+background-blur = true
+macos-titlebar-style = transparent
+
+# Unbind CMD+... keys so they will be forwarded to Zellij
+keybind = cmd+t=unbind
+keybind = cmd+n=unbind
+keybind = cmd+c=unbind
+keybind = cmd+w=unbind
+keybind = cmd+opt+left=unbind
+keybind = cmd+opt+right=unbind
