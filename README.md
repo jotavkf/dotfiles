@@ -10,10 +10,18 @@ Personal macOS dotfiles and package setup.
 
 The installer:
 
+- checks that macOS developer tools are installed
 - installs Homebrew packages from `Brewfile` when `brew` is available
+- configures Git name, email, pull rebase, and nano as the commit editor
 - symlinks zsh config into `~/.zshrc`
 - symlinks Ghostty config into `~/.config/ghostty/config`
 - symlinks Zellij config into `~/.config/zellij/config.kdl`
+
+Git name and email can be provided non-interactively:
+
+```sh
+GIT_USER_NAME="Your Name" GIT_USER_EMAIL="you@example.com" ./install.sh
+```
 
 ## Layout
 
