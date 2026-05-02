@@ -4,6 +4,7 @@ macos-option-as-alt = true
 background-opacity = 0.95
 background-blur = true
 macos-titlebar-style = transparent
+desktop-notifications = true
 
 # Unbind CMD+... keys so they will be forwarded to Zellij
 keybind = cmd+t=unbind
