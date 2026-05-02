@@ -7,9 +7,9 @@ ZSH_SOURCE="$DOTFILES_DIR/zsh/.zshrc"
 START_MARKER="# >>> dotfiles setup >>>"
 END_MARKER="# <<< dotfiles setup <<<"
 GHOSTTY_TARGET="$HOME/.config/ghostty/config"
-GHOSTTY_SOURCE="$DOTFILES_DIR/ghostty/.config/ghostty/config"
+GHOSTTY_SOURCE="$DOTFILES_DIR/ghostty/config"
 ZELLIJ_TARGET="$HOME/.config/zellij/config.kdl"
-ZELLIJ_SOURCE="$DOTFILES_DIR/zellij/.config/zellij/config.kdl"
+ZELLIJ_SOURCE="$DOTFILES_DIR/zellij/config.kdl"
 
 if command -v brew >/dev/null 2>&1; then
   brew bundle --file "$DOTFILES_DIR/Brewfile"
@@ -44,34 +44,14 @@ done < "$ZSHRC"
   fi
 
   printf '%s\n' "$START_MARKER"
-  cat "$ZSH_SOURCE"
+  printf 'source %q\n' "$ZSH_SOURCE"
   printf '%s\n' "$END_MARKER"
 } >> "$tmp_zshrc"
 
 mv "$tmp_zshrc" "$ZSHRC"
 
-mkdir -p "$(dirname "$GHOSTTY_TARGET")"
-
-if [ -L "$GHOSTTY_TARGET" ]; then
-  rm "$GHOSTTY_TARGET"
-elif [ -e "$GHOSTTY_TARGET" ] && ! cmp -s "$GHOSTTY_SOURCE" "$GHOSTTY_TARGET"; then
-  mv "$GHOSTTY_TARGET" "$GHOSTTY_TARGET.$(date +%Y%m%d%H%M%S).bak"
-fi
-
-if [ ! -e "$GHOSTTY_TARGET" ]; then
-  cp "$GHOSTTY_SOURCE" "$GHOSTTY_TARGET"
-fi
-
-mkdir -p "$(dirname "$ZELLIJ_TARGET")"
-
-if [ -L "$ZELLIJ_TARGET" ]; then
-  rm "$ZELLIJ_TARGET"
-elif [ -e "$ZELLIJ_TARGET" ] && ! cmp -s "$ZELLIJ_SOURCE" "$ZELLIJ_TARGET"; then
-  mv "$ZELLIJ_TARGET" "$ZELLIJ_TARGET.$(date +%Y%m%d%H%M%S).bak"
-fi
-
-if [ ! -e "$ZELLIJ_TARGET" ]; then
-  cp "$ZELLIJ_SOURCE" "$ZELLIJ_TARGET"
-fi
+mkdir -p "$(dirname "$GHOSTTY_TARGET")" "$(dirname "$ZELLIJ_TARGET")"
+ln -sfn "$GHOSTTY_SOURCE" "$GHOSTTY_TARGET"
+ln -sfn "$ZELLIJ_SOURCE" "$ZELLIJ_TARGET"
 
 printf 'Dotfiles installed.\n'

@@ -11,19 +11,18 @@ Personal macOS dotfiles and package setup.
 The installer:
 
 - installs Homebrew packages from `Brewfile` when `brew` is available
-- copies zsh config into a managed block in `~/.zshrc`
-- copies Ghostty config into `~/.config/ghostty/config`
-- copies Zellij config into `~/.config/zellij/config.kdl`
-- backs up existing unmanaged app configs with a timestamp before replacing them
+- sources zsh config from a managed block in `~/.zshrc`
+- symlinks Ghostty config into `~/.config/ghostty/config`
+- symlinks Zellij config into `~/.config/zellij/config.kdl`
 
 ## Layout
 
 ```text
 Brewfile                  Homebrew formulae and casks
 install.sh                Bootstrap script
-zsh/.zshrc                Shell configuration copied into ~/.zshrc
-ghostty/.config/ghostty/config
-zellij/.config/zellij/config.kdl
+zsh/.zshrc                Shell configuration sourced from ~/.zshrc
+ghostty/config            Ghostty configuration
+zellij/config.kdl         Zellij configuration
 ```
 
 ## Manual Package Install

@@ -1,5 +1,6 @@
 brew "gh"
 brew "fzf"
+brew "jq"
 brew "zoxide"
 brew "zellij"
 brew "starship"
