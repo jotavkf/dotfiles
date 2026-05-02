@@ -10,6 +10,8 @@ MISE_TARGET="$HOME/.config/mise/config.toml"
 MISE_SOURCE="$DOTFILES_DIR/mise/config.toml"
 ZELLIJ_TARGET="$HOME/.config/zellij/config.kdl"
 ZELLIJ_SOURCE="$DOTFILES_DIR/zellij/config.kdl"
+CURSOR_TARGET="$HOME/Library/Application Support/Cursor/User/settings.json"
+CURSOR_SOURCE="$DOTFILES_DIR/cursor/settings.json"
 
 if ! xcode-select -p >/dev/null 2>&1; then
   printf 'macOS developer tools not found; starting installer. Re-run this script after it finishes.\n'
@@ -61,11 +63,12 @@ fi
 git config --global pull.rebase true
 git config --global core.editor nano
 
-mkdir -p "$(dirname "$GHOSTTY_TARGET")" "$(dirname "$MISE_TARGET")" "$(dirname "$ZELLIJ_TARGET")"
+mkdir -p "$(dirname "$GHOSTTY_TARGET")" "$(dirname "$MISE_TARGET")" "$(dirname "$ZELLIJ_TARGET")" "$(dirname "$CURSOR_TARGET")"
 ln -sfn "$ZSH_SOURCE" "$ZSHRC"
 ln -sfn "$GHOSTTY_SOURCE" "$GHOSTTY_TARGET"
 ln -sfn "$MISE_SOURCE" "$MISE_TARGET"
 ln -sfn "$ZELLIJ_SOURCE" "$ZELLIJ_TARGET"
+ln -sfn "$CURSOR_SOURCE" "$CURSOR_TARGET"
 
 if command -v mise >/dev/null 2>&1; then
   mise trust "$MISE_SOURCE"

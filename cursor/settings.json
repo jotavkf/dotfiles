@@ -1,0 +1,12 @@
+{
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 14,
+  "editor.fontWeight": "300",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.trimAutoWhitespace": true,
+  "editor.semanticHighlighting.enabled": "configuredByTheme",
+  "editor.tabSize": 2,
+  "html.autoClosingTags": true,
+  "git.autofetch": true
+}
