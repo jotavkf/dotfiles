@@ -15,6 +15,7 @@ The installer:
 - configures Git name, email, pull rebase, and nano as the commit editor
 - symlinks zsh config into `~/.zshrc`
 - symlinks Ghostty config into `~/.config/ghostty/config`
+- symlinks Mise config into `~/.config/mise/config.toml` and installs configured tools
 - symlinks Zellij config into `~/.config/zellij/config.kdl`
 
 Git name and email can be provided non-interactively:
@@ -30,6 +31,7 @@ Brewfile                  Homebrew formulae and casks
 install.sh                Bootstrap script
 zsh/.zshrc                Shell configuration
 ghostty/config            Ghostty configuration
+mise/config.toml          Mise tool versions
 zellij/config.kdl         Zellij configuration
 ```
 

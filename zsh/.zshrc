@@ -3,6 +3,7 @@ if [[ $- == *i* ]]; then
 
   source <(fzf --zsh)
   eval "$(zoxide init zsh)"
+  eval "$(mise activate zsh)"
   eval "$(starship init zsh)"
 
   if [[ "$TERM" == "xterm-ghostty" ]]; then
