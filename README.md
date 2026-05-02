@@ -10,6 +10,7 @@ Personal macOS dotfiles and package setup.
 
 The installer:
 
+- shows a colored, chapter-based setup flow
 - checks that macOS developer tools are installed
 - installs Homebrew packages from `Brewfile` when `brew` is available
 - configures Git name, email, pull rebase, and nano as the commit editor
@@ -17,6 +18,7 @@ The installer:
 - symlinks Ghostty config into `~/.config/ghostty/config`
 - symlinks Mise config into `~/.config/mise/config.toml` and installs configured tools
 - symlinks Zellij config into `~/.config/zellij/config.kdl`
+- symlinks Cursor settings into `~/Library/Application Support/Cursor/User/settings.json`
 
 Git name and email can be provided non-interactively:
 
@@ -33,6 +35,7 @@ zsh/.zshrc                Shell configuration
 ghostty/config            Ghostty configuration
 mise/config.toml          Mise tool versions
 zellij/config.kdl         Zellij configuration
+cursor/settings.json      Cursor editor settings
 ```
 
 ## Manual Package Install
