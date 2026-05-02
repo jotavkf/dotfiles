@@ -23,8 +23,18 @@ else
   printf 'Homebrew not found; skipping package install.\n'
 fi
 
-git_name="${GIT_USER_NAME:-$(git config --global user.name || true)}"
-git_email="${GIT_USER_EMAIL:-$(git config --global user.email || true)}"
+git_name="${GIT_USER_NAME:-$(git config --global --get user.name || true)}"
+git_email="${GIT_USER_EMAIL:-$(git config --global --get user.email || true)}"
+
+if [[ "$git_name" == -* ]]; then
+  printf 'Ignoring invalid Git user.name: %s\n' "$git_name"
+  git_name=""
+fi
+
+if [[ "$git_email" == -* ]]; then
+  printf 'Ignoring invalid Git user.email: %s\n' "$git_email"
+  git_email=""
+fi
 
 if [ -z "$git_name" ] && [ -t 0 ]; then
   printf 'Git user.name: '
